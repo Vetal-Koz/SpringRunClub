@@ -1,5 +1,5 @@
 <html
-        xmlns:th="http://thmyelead.org"
+        xmlns:th="http://thmyeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         layout:decorate="~{layout}">
 <head>
@@ -22,6 +22,7 @@
                     placeholder="Title"
                     name="title"
                     th:field="*{title}">
+            <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
           </div>
           <div class="form-group col-md-6">
             <label for="photoUrl">Photourl</label>
@@ -32,6 +33,7 @@
                     placeholder="Photo Url"
                     name="photoUrl"
                     th:field="*{photoUrl}">
+            <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}"></p>
           </div>
         </div>
         <div class="form-group mb-3">
@@ -43,6 +45,7 @@
                   placeholder="Content"
                   name="content"
                   th:field="*{content}">
+          <p th:if="${#fields.hasErrors('content')}" class="text-danger" th:errors="*{content}"></p>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
       </form>
