@@ -29,7 +29,7 @@
             <h2 class="card-title">About this running club</h2>
             <p class="card-text" th:text="${club.content}"></p>
             <a class="btn bg-danger" th:href="@{/clubs/{clubId}/delete(clubId=${club.id})}">Delete</a>
-            </div>
+            <a class="btn bg-danger" th:href="@{/events/{clubId}/new(clubId=${club.id})}">Create Event</a>
           </div>
         </div>
         <!-- Nested row for non-featured blog posts-->
