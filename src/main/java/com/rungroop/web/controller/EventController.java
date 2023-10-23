@@ -54,7 +54,7 @@ public class EventController {
                               Model model){
         if(result.hasErrors()) {
             model.addAttribute("event", eventDto);
-            return "clubs-create";
+            return "events-create";
         }
         eventService.createEvent(clubId, eventDto);
         return "redirect:/clubs/" + clubId;
@@ -79,6 +79,12 @@ public class EventController {
         event.setId(eventId);
         event.setClub(eventDto.getClub());
         eventService.updateEvent(event);
+        return "redirect:/events";
+    }
+
+    @GetMapping("/events/{eventId}/delete")
+    public String deleteEvent(@PathVariable("eventId") Long eventId){
+        eventService.deleteEvent(eventId);
         return "redirect:/events";
     }
 }
