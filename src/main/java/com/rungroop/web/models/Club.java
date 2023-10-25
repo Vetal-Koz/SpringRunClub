@@ -23,7 +23,7 @@ import java.util.Set;
 public class Club {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
     private String photoUrl;
     private String content;
@@ -32,6 +32,10 @@ public class Club {
     @UpdateTimestamp
     private LocalDateTime updatedOn;
 
+
+    @ManyToOne
+    @JoinColumn(name = "created_by", nullable = false)
+    private UserEntity createdBy;
     @OneToMany(mappedBy = "club", cascade = CascadeType.REMOVE)
     private List<Event> events = new ArrayList<>();
 }

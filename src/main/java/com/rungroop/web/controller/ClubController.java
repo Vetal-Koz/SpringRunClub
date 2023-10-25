@@ -45,6 +45,7 @@ public class ClubController {
     @PostMapping("/clubs/new")
     public String saveClub(@ModelAttribute("club") ClubDto clubDto, BindingResult result, Model model) {
         if(result.hasErrors()) {
+            System.out.println(result.getFieldErrors());
             model.addAttribute("club", clubDto);
             return "clubs-create";
         }
